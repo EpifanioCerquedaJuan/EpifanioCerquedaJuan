@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Ratón y Teclado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Eventos de Ratón y Teclado</h1>
+<div id="info">
+    <p>Posición del ratón (respecto del navegador): <span id="posicionNavegador"></span></p>
+    <p>Posición del ratón (respecto de la página): <span id="posicionPagina"></span></p>
+    <p>Último evento de teclado: <span id="eventoTeclado"></span></p>
+</div>
+
+<script>
+    // Obtener elementos
+    var posicionNavegadorSpan = document.getElementById('posicionNavegador');
+    var posicionPaginaSpan = document.getElementById('posicionPagina');
+    var eventoTecladoSpan = document.getElementById('eventoTeclado');
+
+    // Función para actualizar la posición del ratón
+    function actualizarPosicion(event) {
+        var xNavegador = event.clientX;
+        var yNavegador = event.clientY;
+        var xPagina = event.pageX;
+        var yPagina = event.pageY;
+
+        posicionNavegadorSpan.textContent = xNavegador + ', ' + yNavegador;
+        posicionPaginaSpan.textContent = xPagina + ', ' + yPagina;
+    }
+
+    // Función para manejar eventos de ratón
+    function manejarEventoRaton(event) {
+        actualizarPosicion(event);
+    }
+
+    // Función para manejar eventos de teclado
+    function manejarEventoTeclado(event) {
+        eventoTecladoSpan.textContent = 'Tecla pulsada: ' + event.key;
+    }
+
+    // Agregar listeners
+    document.addEventListener('mousemove', manejarEventoRaton);
+    document.addEventListener('keypress', manejarEventoTeclado);
+</script>
+
+</body>
+</html>
