@@ -11,7 +11,7 @@ fetch('https://hp-api.onrender.com/api/characters')
 console.log(respuesta)
 function personajes(respuesta) {
     const contenido = document.querySelector('.contenido')
-    //console.log(respuesta)
+    console.log(respuesta)
     const { value } = respuesta;
     //console.log(value)
     const html = 
